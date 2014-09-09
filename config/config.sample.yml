@@ -1,5 +1,6 @@
 # rename me to config.yml
 # see https://github.com/benprew/pony
+host: "127.0.0.1"
 smtp:
   address: "smtp.gmail.com"
   port: "587"

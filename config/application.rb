@@ -22,7 +22,11 @@ end
 
 # index
 get "/" do
-  @subscriptions = Subscription.all.includes(:board)
+  if params[:email]
+    @subscriptions = Subscription.where(email: params[:email]).includes(:board)
+  else
+    @subscriptions = Subscription.all.includes(:board)
+  end
   erb :index
 end
 # create
@@ -41,9 +45,9 @@ post "/" do
 end
 # destroy
 get "/delete" do
-  if params[:id] and params[:email] and sub = Subscription.find_by(params)
+  if params[:email] and params[:id] and sub = Subscription.find_by(params)
     sub.destroy
-    erb "您已成功退订"
+    redirect "/?email=#{params[:email]}"
   else
     erb "错误"
   end

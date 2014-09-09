@@ -39,7 +39,7 @@
     <% end %>
   </tbody>
 </table>
-<div style="text-align: center; margin-top: 20px; color: #AAA;">
-  <small>退订请点击 <a href="http://127.0.0.1/delete?email=<%= email %>" target="_blank">此处</a></small>
+<div style="text-align: center; margin-top: 20px;">
+  <small><a href="http://<%= CONFIG[:host] %>/?email=<%= email %>" target="_blank" style="color: #AAA;">订阅管理</a></small>
 </div>
 </div>
