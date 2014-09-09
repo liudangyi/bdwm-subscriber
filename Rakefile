@@ -1,5 +1,5 @@
 require "sinatra/activerecord/rake"
-require "./application"
+require "./config/application"
 
 desc "Start the server"
 task :server do

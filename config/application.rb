@@ -1,12 +1,14 @@
 require 'sinatra'
 require "sinatra/activerecord"
 
-CONFIG = HashWithIndifferentAccess.new YAML::load_file("config.yml")
+CONFIG = HashWithIndifferentAccess.new YAML::load_file("config/config.yml")
 set :database, {
   adapter: "sqlite3",
   database: "db/bdwm_subser.sqlite3"
 }
 set :port, 3000
+set :views, File.dirname(__FILE__) + "/../views"
+I18n.enforce_available_locales = false
 
 class Board < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
