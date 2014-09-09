@@ -1,0 +1,28 @@
+<h2>BDWM 关键词订阅服务</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>版面</th>
+      <th>关键词</th>
+      <th>Email</th>
+      <th>IP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @subscriptions.each do |sub| %>
+    <tr>
+      <td><%= sub.board.name %></td>
+      <td><%= escape_html sub.keywords %></td>
+      <td><%= escape_html sub.email.sub(/(.{3})([^@]+)/) { $1 + "*"*$2.length } %></td>
+      <td><%= sub.ip.sub(/\d+\Z/, "*") %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<form class="form-inline" method="post">
+  <input type="text" class="form-control" name="board" placeholder="版面" required>
+  <input type="text" class="form-control" name="keywords" placeholder="关键词，用空格分隔，也可填写 *" style="min-width: 280px;" required>
+  <input type="email" class="form-control" name="email" placeholder="Email" required>
+  <button type="submit" class="btn btn-default">新增</button>
+</form>

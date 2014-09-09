@@ -1,0 +1,45 @@
+<style>
+  td {
+    border-top: 1px solid #DDD;
+    padding: 5px 3px;
+  }
+  th {
+    padding-bottom: 8px;
+  }
+  a {
+    color: #428bca;
+    text-decoration: none
+  }
+  a:hover, a:focus {
+    color: #2a6496;
+    text-decoration: underline
+  }
+</style>
+<div style="font-family: 'Helvetica Neue', sans-serif; color: #333; font-size: 14px; max-width: 700px; margin: 20px auto;">
+<table style="font-size: inherit; width: 100%; border-spacing: 0;">
+  <thead>
+    <tr>
+      <th>版面</th>
+      <th>关键词</th>
+      <th>作者</th>
+      <th>日期</th>
+      <th>标题</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% contents.each do |a| %>
+    <% board_name, keyword, thread_id, author, time, title = a %>
+    <tr>
+      <td><%= board_name %></td>
+      <td><%= keyword %></td>
+      <td><%= author %></td>
+      <td><%= time %></td>
+      <td><a href="http://www.bdwm.net/bbs/bbstcon.php?board=<%= board_name %>&threadid=<%= thread_id %>" target="_blank"><%= title %></a></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<div style="text-align: center; margin-top: 20px; color: #AAA;">
+  <small>退订请点击 <a href="http://127.0.0.1/delete?email=<%= email %>" target="_blank">此处</a></small>
+</div>
+</div>
