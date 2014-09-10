@@ -40,7 +40,7 @@ def send_all_mail
     next if contents.empty?
     body = ERB.new(File.read("views/email.erb")).result(binding)
     Pony.mail to: email,
-              from: "bdwm.subscriper@leedy.me",
+              from: CONFIG["smtp"]["user_name"],
               subject: "[BDWM 订阅] #{contents.map(&:first).uniq.join(", ")} 版面提醒",
               charset: "UTF-8",
               html_body: body,
