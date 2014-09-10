@@ -19,6 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :environment_variable, "RACK_ENV"
 every 30.minutes do
   rake "update"
 end
