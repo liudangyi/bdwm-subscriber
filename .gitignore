@@ -17,3 +17,4 @@
 /coverage
 
 /config/config.yml
+/config/nginx.conf
