@@ -4,7 +4,7 @@ require "time"
 require "pony"
 
 def update_board(board)
-  content = open("http://www.bdwm.net/bbs/bbstop.php?board=#{board.name}").read.encode("UTF-8", "GB2312")
+  content = open("http://www.bdwm.net/bbs/bbstop.php?board=#{board.name}").read.encode("UTF-8", "GB18030")
   recent = nil
   result = []
   Nokogiri::HTML(content).css(".body tr").to_a.last(20).reverse.each do |tr|
